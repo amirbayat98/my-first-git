@@ -1,0 +1,309 @@
+amir@amir:~$ cd first-git
+amir@amir:~/first-git$ git init
+Initialized empty Git repository in /home/amir/first-git/.git/
+amir@amir:~/first-git$ git status
+On branch master
+
+Initial commit
+
+nothing to commit (create/copy files and use "git add" to track)
+amir@amir:~/first-git$ git status
+On branch master
+
+Initial commit
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+
+	Untitled Document~
+	first.txt
+
+nothing added to commit but untracked files present (use "git add" to track)
+amir@amir:~/first-git$ ls
+first.txt  Untitled Document~
+amir@amir:~/first-git$ git add first.txt
+amir@amir:~/first-git$ git status
+On branch master
+
+Initial commit
+
+Changes to be committed:
+  (use "git rm --cached <file>..." to unstage)
+
+	new file:   first.txt
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+
+	Untitled Document~
+
+amir@amir:~/first-git$ git commit -m "fisrt things started"
+
+*** Please tell me who you are.
+
+Run
+
+  git config --global user.email "you@example.com"
+  git config --global user.name "Your Name"
+
+to set your account's default identity.
+Omit --global to set the identity only in this repository.
+
+fatal: unable to auto-detect email address (got 'amir@amir.(none)')
+amir@amir:~/first-git$ git config --global user.email "amirbayat1998@yahoo.com"
+amir@amir:~/first-git$ git commit -m "fisrt things started"
+[master (root-commit) 3a1e7c5] fisrt things started
+ 1 file changed, 1 insertion(+)
+ create mode 100644 first.txt
+amir@amir:~/first-git$ git log
+commit 3a1e7c51c00d010b97ec3b06e8a378222850b6b1
+Author: amir <amirbayat1998@yahoo.com>
+Date:   Sat Jan 21 01:43:44 2017 -0500
+
+    fisrt things started
+amir@amir:~/first-git$ git remote add origin https://github.com/amirbayat98/my-first-git
+amir@amir:~/first-git$ git push -u origin master
+Username for 'https://github.com': amirbayat98
+Password for 'https://amirbayat98@github.com': 
+remote: Invalid username or password.
+fatal: Authentication failed for 'https://github.com/amirbayat98/my-first-git/'
+amir@amir:~/first-git$ git push -u origin masterUsername for 'https://github.com': amirbayat98
+Password for 'https://amirbayat98@github.com': 
+Counting objects: 3, done.
+Writing objects: 100% (3/3), 218 bytes | 0 bytes/s, done.
+Total 3 (delta 0), reused 0 (delta 0)
+To https://github.com/amirbayat98/my-first-git
+ * [new branch]      master -> master
+Branch master set up to track remote branch master from origin.
+amir@amir:~/first-git$ git new branch
+git: 'new' is not a git command. See 'git --help'.
+
+Did you mean this?
+	notes
+amir@amir:~/first-git$ git --help
+usage: git [--version] [--help] [-C <path>] [-c name=value]
+           [--exec-path[=<path>]] [--html-path] [--man-path] [--info-path]
+           [-p|--paginate|--no-pager] [--no-replace-objects] [--bare]
+           [--git-dir=<path>] [--work-tree=<path>] [--namespace=<name>]
+           <command> [<args>]
+
+The most commonly used git commands are:
+   add        Add file contents to the index
+   bisect     Find by binary search the change that introduced a bug
+   branch     List, create, or delete branches
+   checkout   Checkout a branch or paths to the working tree
+   clone      Clone a repository into a new directory
+   commit     Record changes to the repository
+   diff       Show changes between commits, commit and working tree, etc
+   fetch      Download objects and refs from another repository
+   grep       Print lines matching a pattern
+   init       Create an empty Git repository or reinitialize an existing one
+   log        Show commit logs
+   merge      Join two or more development histories together
+   mv         Move or rename a file, a directory, or a symlink
+   pull       Fetch from and integrate with another repository or a local branch
+   push       Update remote refs along with associated objects
+   rebase     Forward-port local commits to the updated upstream head
+   reset      Reset current HEAD to the specified state
+   rm         Remove files from the working tree and from the index
+   show       Show various types of objects
+   status     Show the working tree status
+   tag        Create, list, delete or verify a tag object signed with GPG
+
+'git help -a' and 'git help -g' lists available subcommands and some
+concept guides. See 'git help <command>' or 'git help <concept>'
+to read about a specific subcommand or concept.
+amir@amir:~/first-git$ git help branch
+amir@amir:~/first-git$ 
+amir@amir:~/first-git$ git pull origin master
+From https://github.com/amirbayat98/my-first-git
+ * branch            master     -> FETCH_HEAD
+Already up-to-date.
+amir@amir:~/first-git$ git diff Head
+fatal: ambiguous argument 'Head': unknown revision or path not in the working tree.
+Use '--' to separate paths from revisions, like this:
+'git <command> [<revision>...] -- [<file>...]'
+amir@amir:~/first-git$ git diff HEAD
+amir@amir:~/first-git$ git diff
+amir@amir:~/first-git$ git help diff
+amir@amir:~/first-git$ 
+amir@amir:~/first-git$ git status
+On branch master
+Your branch is up-to-date with 'origin/master'.
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+
+	Untitled Document~
+	second.txt
+	second~
+	third.txt
+	third.txt~
+
+nothing added to commit but untracked files present (use "git add" to track)
+amir@amir:~/first-git$ git add "*.txt"
+amir@amir:~/first-git$ git status
+On branch master
+Your branch is up-to-date with 'origin/master'.
+
+Changes to be committed:
+  (use "git reset HEAD <file>..." to unstage)
+
+	new file:   second.txt
+	new file:   third.txt
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+
+	Untitled Document~
+	second~
+	third.txt~
+
+amir@amir:~/first-git$ git commit third -m "chech how to commit a file"
+error: pathspec 'third' did not match any file(s) known to git.
+amir@amir:~/first-git$ git commit third.txt -m "chech how to commit a file"
+[master f3a4ddb] chech how to commit a file
+ 1 file changed, 1 insertion(+)
+ create mode 100644 third.txt
+amir@amir:~/first-git$ git status
+On branch master
+Your branch is ahead of 'origin/master' by 1 commit.
+  (use "git push" to publish your local commits)
+
+Changes to be committed:
+  (use "git reset HEAD <file>..." to unstage)
+
+	new file:   second.txt
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+
+	Untitled Document~
+	second~
+	third.txt~
+
+amir@amir:~/first-git$ git status
+On branch master
+Your branch is ahead of 'origin/master' by 1 commit.
+  (use "git push" to publish your local commits)
+
+Changes to be committed:
+  (use "git reset HEAD <file>..." to unstage)
+
+	new file:   second.txt
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+
+	Untitled Document~
+	fourth.txt
+	second~
+	third.txt~
+
+amir@amir:~/first-git$ git add "fouth.txt"
+fatal: pathspec 'fouth.txt' did not match any files
+amir@amir:~/first-git$ git add fouth.txt
+fatal: pathspec 'fouth.txt' did not match any files
+amir@amir:~/first-git$ git add "fourth.txt"
+amir@amir:~/first-git$ git status
+On branch master
+Your branch is ahead of 'origin/master' by 1 commit.
+  (use "git push" to publish your local commits)
+
+Changes to be committed:
+  (use "git reset HEAD <file>..." to unstage)
+
+	new file:   fourth.txt
+	new file:   second.txt
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+
+	Untitled Document~
+	second~
+	third.txt~
+
+amir@amir:~/first-git$ git commit -m "how to commit two files!"
+[master a25d0c5] how to commit two files!
+ 2 files changed, 3 insertions(+)
+ create mode 100644 fourth.txt
+ create mode 100644 second.txt
+amir@amir:~/first-git$ git status
+On branch master
+Your branch is ahead of 'origin/master' by 2 commits.
+  (use "git push" to publish your local commits)
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+
+	Untitled Document~
+	second~
+	third.txt~
+
+nothing added to commit but untracked files present (use "git add" to track)
+amir@amir:~/first-git$ git push
+warning: push.default is unset; its implicit value is changing in
+Git 2.0 from 'matching' to 'simple'. To squelch this message
+and maintain the current behavior after the default changes, use:
+
+  git config --global push.default matching
+
+To squelch this message and adopt the new behavior now, use:
+
+  git config --global push.default simple
+
+When push.default is set to 'matching', git will push local branches
+to the remote branches that already exist with the same name.
+
+In Git 2.0, Git will default to the more conservative 'simple'
+behavior, which only pushes the current branch to the corresponding
+remote branch that 'git pull' uses to update the current branch.
+
+See 'git help config' and search for 'push.default' for further information.
+(the 'simple' mode was introduced in Git 1.7.11. Use the similar mode
+'current' instead of 'simple' if you sometimes use older versions of Git)
+
+    
+fatal: unable to access 'https://github.com/amirbayat98/my-first-git/': Could not resolve host: github.com
+amir@amir:~/first-git$ 
+amir@amir:~/first-git$ git push
+warning: push.default is unset; its implicit value is changing in
+Git 2.0 from 'matching' to 'simple'. To squelch this message
+and maintain the current behavior after the default changes, use:
+
+  git config --global push.default matching
+
+To squelch this message and adopt the new behavior now, use:
+
+  git config --global push.default simple
+
+When push.default is set to 'matching', git will push local branches
+to the remote branches that already exist with the same name.
+
+In Git 2.0, Git will default to the more conservative 'simple'
+behavior, which only pushes the current branch to the corresponding
+remote branch that 'git pull' uses to update the current branch.
+
+See 'git help config' and search for 'push.default' for further information.
+(the 'simple' mode was introduced in Git 1.7.11. Use the similar mode
+'current' instead of 'simple' if you sometimes use older versions of Git)
+
+Username for 'https://github.com': amirbayat98
+Password for 'https://amirbayat98@github.com': 
+Counting objects: 8, done.
+Delta compression using up to 2 threads.
+Compressing objects: 100% (4/4), done.
+Writing objects: 100% (7/7), 581 bytes | 0 bytes/s, done.
+Total 7 (delta 1), reused 0 (delta 0)
+remote: Resolving deltas: 100% (1/1), done.
+To https://github.com/amirbayat98/my-first-git
+   3a1e7c5..a25d0c5  master -> master
+amir@amir:~/first-git$ git pull origin master
+From https://github.com/amirbayat98/my-first-git
+ * branch            master     -> FETCH_HEAD
+Already up-to-date.
+amir@amir:~/first-git$ git diff HEAD
+amir@amir:~/first-git$ ^C
+amir@amir:~/first-git$ 
+
+
